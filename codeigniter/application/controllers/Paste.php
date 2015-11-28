@@ -12,8 +12,10 @@ class Paste extends CI_Controller {
 	public function index()
 	{
 		$random = $this->create->insert();
-		$this->create->insert()
-		$this->load->view('welcome_messag/code/'.$random);
+		if($random){
+			redirect('/paste/code/'.$random, 'refresh');
+		}
+		$this->load->view('welcome_messag');
 	}
 
 	/*manual insertion to database
