@@ -14,20 +14,21 @@ class Create extends CI_Model {
         return $query->result();
     }
 
-    public function select_one()
+    public function select_one($filename)
     {        
-        $query = $this->db->get_where('tb_posts', array('id' => $id));
+        $query = $this->db->get_where('paste', array('filename' => $filename));
         return $query->result();
     }
 
     public function insert()
     {
+            $random = random_string('alnum', 8);
             $data = array(
                 'data' => $this->input->post('data'),
-                'filename' => random_string('alnum', 8)
+                'filename' => $random
             );
             if($this->db->insert('paste', $data)) {
-                return true;
+                return $random;
             } else {
                 return false;
             }

@@ -73,11 +73,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
+	<?php echo form_open('paste'); ?>
 	<div id="form">
-		<form method="POST" action="paste/add" name="form">
 			<textarea class="col-sm-9" id="paste" name="data"></textarea><br>
-			<input style="float:right;" type="submit" value="add"></form><br>
-		</form>
+			<input style="float:right;" type="submit" value="add"><br>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>

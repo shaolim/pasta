@@ -3,10 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Paste extends CI_Controller {
 
+	public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('create');
+    }   
+
 	public function index()
 	{
-		$this->load->view('welcome_messag');
+		$random = $this->create->insert();
+		$this->create->insert()
+		$this->load->view('welcome_messag/code/'.$random);
 	}
+
+	/*manual insertion to database
+
 	public function add()
 	{
 		$this->load->helper('string');
@@ -16,16 +27,21 @@ class Paste extends CI_Controller {
 			);
 		$this->load->database();
 		$this->db->insert('paste', $data);
-		//$query = $this->db->get_where('paste', array('filename' => 'AjLz5Z2l');
 		$this->load->view('aftersubmit', $data);
-	}
+	}*/
 	public function code($filename){
+		$data['content'] = $this->create->select_one($filename);
+		$this->load->view('file', $data);
 		
+
+		/*manual select database
+
 		$this->load->database();
 		$this->db->where('filename', $filename);
 		//$query = $this->db->get_where('paste', array('filename' => $filename));
 		$this->db->select('data');
 		$query = $this->db->get('paste');
 		$this->load->view('file', $query);
+		*/
 	}
 }

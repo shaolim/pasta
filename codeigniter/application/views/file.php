@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
@@ -59,7 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	#container {
-		margin: 10px;
+		margin-left: 100px;
+		margin-right: 100px;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
 	}
@@ -70,12 +73,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
-	<div id="form" style="padding-left:10px">
-		<form method="POST" action="welcome/add" name="form">
-			<p id="paste" tabindex="20" rows="22" name="data"><?php echo $query;?></p>
-		</form>
+	<?php echo form_open('paste'); ?>
+	<div id="form">
+			<p class="col-sm-9" id="paste" name="data">asd<?php foreach($content as $row) {echo $row->data;}?></p>
 	</div>
-
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
 
