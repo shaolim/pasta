@@ -20,33 +20,9 @@ class Paste extends CI_Controller {
 		$this->load->view('home_view');
 	}
 
-	/*manual insertion to database
-
-	public function add()
-	{
-		$this->load->helper('string');
-		$data = array(
-			'data' => $this->input->post('data'),
-			'filename' => random_string('alnum', 8) 
-			);
-		$this->load->database();
-		$this->db->insert('paste', $data);
-		$this->load->view('aftersubmit', $data);
-	}*/
 	public function code($filename){
 		$data['content'] = $this->create->select_one($filename);
 		$this->load->view('file_view', $data);
-		
-
-		/*manual select database
-
-		$this->load->database();
-		$this->db->where('filename', $filename);
-		//$query = $this->db->get_where('paste', array('filename' => $filename));
-		$this->db->select('data');
-		$query = $this->db->get('paste');
-		$this->load->view('file', $query);
-		*/
 	}
 
 	public function select_all(){
@@ -54,9 +30,9 @@ class Paste extends CI_Controller {
 		$this->load->view('history_view', $data);
 	}
 
-	/*public function example1() {
+	public function history() {
         $config = array();
-        $config["base_url"] = base_url() . "paste/example1";
+        $config["base_url"] = base_url() . "paste/history";
         $config["total_rows"] = $this->create->record_count();
         $config["per_page"] = 20;
         $config["uri_segment"] = 3;
@@ -68,6 +44,6 @@ class Paste extends CI_Controller {
             fetch_data($config["per_page"], $page);
         $data["links"] = $this->pagination->create_links();
 
-        $this->load->view("example1", $data);
-    }*/
+        $this->load->view("history_view", $data);
+    }
 }

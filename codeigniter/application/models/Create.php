@@ -28,7 +28,7 @@ class Create extends CI_Model {
                 'data' => $this->input->post('data'),
                 'filename' => $random,
                 'language' => $this->input->post('type'),
-                'time_update' => $now->format('Y-m-d H:i:s')
+                'time_update' => $now->format('Y-m-d H:i')
             );
             if($this->db->insert('paste', $data)) {
                 return $random;
