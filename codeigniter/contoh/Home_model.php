@@ -9,7 +9,7 @@ class Home_model extends CI_Model {
         public function get_all()
         {
         	$this->db->order_by("id", "desc"); 
-        	$query = $this->db->get('tb_posts');
+        	$query = $this->db->get('paste');
         	return $query->result();	
         }
 
