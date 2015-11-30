@@ -78,14 +78,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    	<div>
 	      		<ul class="nav navbar-nav">
 	        		<li class="active"><a href="/codeigniter/">Home</a></li>
-	        		<li><a href="#">Page 1</a></li>
+	        		<li><a href="#">History</a></li>
+	      		</ul>
+	      		<ul class="nav navbar-nav" style="float:right;">
+	      			<li><a href="#">About</a></li>
+	      			<li><a href="#">Contact Us</a></li>
 	      		</ul>
 	    	</div>
 	 	</div>
 	</nav>
 	
 	<div id="container" style="background-color:white;">
-		<h1>Get your paste now!</h1>
+	<div style="padding-top: 10px;">
+		<p style="float:left; color:#0000ff;">Type & get your paste now!</p>
+		<select style="float:right; padding-right:10px;" name="type">
+			<option value="Plain Text">Plain Text</option>
+			<option value="Plain Text">HTML5</option>
+			<option value="Plain Text">CSS</option>
+			<option value="Plain Text">JS</option>
+			<option value="Plain Text">PHP</option>			
+		</select>
+	</div>
+	<div style="clear: both;">
 		<p id="paste" style="padding-left:10px; padding-right:10px; border:1px;" name="data"><?php foreach($content as $row) {echo $row->data;}?></p>	
 		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 	</div>
