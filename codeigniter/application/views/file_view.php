@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    	<div>
 	      		<ul class="nav navbar-nav">
 	        		<li class="active"><a href="<?= base_url() ?>index.php">Home</a></li>
-	        		<li><a href="#">History</a></li>
+	        		<li><a href="<?= base_url() ?>index.php/paste/history">History</a></li>
 	      		</ul>
 	      		<ul class="nav navbar-nav" style="float:right;">
 	      			<li><a href="#">About</a></li>
