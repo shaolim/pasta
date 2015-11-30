@@ -7,6 +7,8 @@ class Paste extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('create');
+        $this->load->helper('url');
+        $this->load->library('pagination');
     }   
 
 	public function index()
@@ -15,7 +17,7 @@ class Paste extends CI_Controller {
 		if($random){
 			redirect('/paste/code/'.$random, 'refresh');
 		}
-		$this->load->view('welcome_messag');
+		$this->load->view('home_view');
 	}
 
 	/*manual insertion to database
@@ -33,7 +35,7 @@ class Paste extends CI_Controller {
 	}*/
 	public function code($filename){
 		$data['content'] = $this->create->select_one($filename);
-		$this->load->view('file', $data);
+		$this->load->view('file_view', $data);
 		
 
 		/*manual select database
@@ -46,4 +48,26 @@ class Paste extends CI_Controller {
 		$this->load->view('file', $query);
 		*/
 	}
+
+	public function select_all(){
+		$data['list_data'] = $this->create->select_all();
+		$this->load->view('history_view', $data);
+	}
+
+	/*public function example1() {
+        $config = array();
+        $config["base_url"] = base_url() . "paste/example1";
+        $config["total_rows"] = $this->create->record_count();
+        $config["per_page"] = 20;
+        $config["uri_segment"] = 3;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $data["results"] = $this->create->
+            fetch_data($config["per_page"], $page);
+        $data["links"] = $this->pagination->create_links();
+
+        $this->load->view("example1", $data);
+    }*/
 }

@@ -73,11 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<nav class="navbar navbar-default" style="background-color:#6fc6a6;">
 	  	<div class="container-fluid">
 	    	<div class="navbar-header">
-	    		<a class="navbar-brand" href="/codeigniter/">Pasta!</a>
+	    		<a class="navbar-brand" href="<?= base_url() ?>index.php">Pasta!</a>
 	    	</div>
 	    	<div>
 	      		<ul class="nav navbar-nav">
-	        		<li class="active"><a href="/codeigniter/">Home</a></li>
+	        		<li class="active"><a href="<?= base_url() ?>index.php">Home</a></li>
 	        		<li><a href="#">History</a></li>
 	      		</ul>
 	      		<ul class="nav navbar-nav" style="float:right;">
@@ -93,10 +93,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p style="float:left; color:#0000ff;">Type & get your paste now!</p>
 		<select style="float:right; padding-right:10px;" name="type">
 			<option value="Plain Text">Plain Text</option>
-			<option value="Plain Text">HTML5</option>
-			<option value="Plain Text">CSS</option>
-			<option value="Plain Text">JS</option>
-			<option value="Plain Text">PHP</option>			
+			<option value="HTML5">HTML5</option>
+			<option value="CSS">CSS</option>
+			<option value="JS">JS</option>
+			<option value="PHP">PHP</option>			
 		</select>
 	</div>
 	<div style="clear: both;">

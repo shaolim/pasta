@@ -98,11 +98,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<nav class="navbar navbar-default"  style="background-color:#6fc6a6;">
 	  	<div class="container-fluid">
 	    	<div class="navbar-header">
-	    		<a class="navbar-brand" href="/codeigniter/">Pasta!</a>
+	    		<a class="navbar-brand" href="<?= base_url() ?>index.php">Pasta!</a>
 	    	</div>
 	    	<div>
 	      		<ul class="nav navbar-nav" style="float:left;">
-	        		<li class="active"><a href="/codeigniter/">Home</a></li>
+	        		<li class="active"><a href="<?= base_url() ?>index.php">Home</a></li>
 	        		<li><a href="#">History</a></li>
 	      		</ul>
 	      		<ul class="nav navbar-nav" style="float:right;">
@@ -114,17 +114,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 	
 <div id="container" style="background-color:white;">
+	<?php echo form_open('paste'); ?>
 	<div style="padding-top: 10px;">
 		<p style="float:left; color:#0000ff;">Type & get your paste now!</p>
 		<select style="float:right; padding-right:10px;" name="type">
 			<option value="Plain Text">Plain Text</option>
-			<option value="Plain Text">HTML5</option>
-			<option value="Plain Text">CSS</option>
-			<option value="Plain Text">JS</option>
-			<option value="Plain Text">PHP</option>			
+			<option value="HTML5">HTML5</option>
+			<option value="CSS">CSS</option>
+			<option value="JS">JS</option>
+			<option value="PHP">PHP</option>			
 		</select>
 	</div>
-	<?php echo form_open('paste'); ?>
 	<textarea id="paste" name="data" style="color:black;"></textarea><br>
 	<input class="myButton" style="float:right;" type="submit" value="Add Paste"><br>
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></>

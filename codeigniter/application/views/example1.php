@@ -66,18 +66,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
-
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="form" style="padding-left:10px">
-		<form method="POST" action="welcome/add" name="form">
-			<p id="paste" tabindex="20" rows="22" name="data"><?php echo $data;?></p>
-		</form>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
-
+ <div id="container">
+  <h1>Countries</h1>
+  <div id="body">
+<?php
+foreach($results as $data) {
+    echo $data->Name . " - " . $data->Continent . "<br>";
+}
+?>
+   <p><?php echo $links; ?></p>
+  </div>
+  <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+ </div>
 </body>
 </html>
