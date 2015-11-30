@@ -77,6 +77,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	#nav ul li .active {
    		border-bottom:3px #FFF solid;
    	}
+   	.bor{
+   		min-height: 40px;
+   		max-height: 100px;
+   		color: inherit;
+   		display: block;
+   		background-color: #ddd;
+   		border-radius: 3px;
+   		margin-bottom: 6px;
+   		padding-top: 10px;
+   		padding-left: 8px;
+   		padding-right: 8px;
+   		overflow: auto;
+   	}
+   	.bor:hover{
+   		cursor: pointer;
+   		padding-left:12px;
+		border-left:4px solid #39c;
+		padding-right:12px;
+		border-right:4px solid #39c;
+   	}
 	</style>
 </head>
 <!--<body>
@@ -120,10 +140,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h1>History</h1>
 		<div id="body">
 			<?php foreach ($results	as $row){?>
-						<a href="<?= base_url() ?>index.php/paste/code/<?= $row->filename ?>"> <p style="float:left;"><?= $row->data ?></a>
-						<p style="text-align:right;">Created At: <?= $row->time_update ?></p>
+						<a class="bor" href="<?= base_url() ?>index.php/paste/code/<?= $row->filename ?>"><p style="max-width: 77%; float:left;"><?= $row->data ?>
+						<p style="float:right;">Created At: <?= $row->time_update ?></p></a>
 			<?php }?>
-
 			<!--table border="1">
 				<thead>
 					<tr>
