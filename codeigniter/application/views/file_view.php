@@ -81,14 +81,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        		<li><a href="<?= base_url() ?>index.php/paste/history">History</a></li>
 	      		</ul>
 	      		<ul class="nav navbar-nav" style="float:right;">
-	      			<li><a href="#">About</a></li>
-	      			<li><a href="#">Contact Us</a></li>
+	      			<li><a href="#page1" id="about">About</a></li>
+	      			<li><a href="#page2" id="contact">Contact Us</a></li>
 	      		</ul>
 	    	</div>
 	 	</div>
 	</nav>
 	
 	<div id="container" style="background-color:white;">
+	<div id="pageContent1" style="clear:both;"></div>
+	<div id="pageContent2"></div>
 	<div style="padding-top: 10px;">
 		<p style="float:left; color:#0000ff;">Type & get your paste now!</p>
 		<select style="float:right; padding-right:10px;" name="type">
@@ -104,5 +106,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 	</div>
 
+<script>
+	$(document).ready(function(){	//executed after the page has loaded
+
+		$("#about").click(function(){
+		        $("#pageContent1").fadeIn();
+		    });
+		$("#contact").click(function(){
+		        $("#pageContent2").fadeIn();
+		    });
+		checkURL();	//check if the URL has a reference to a page and load it
+
+		$('a').click(function (e){	//traverse through all our navigation links..
+
+			checkURL(this.hash);	//.. and assign them a new onclick event, using their own hash as a parameter (#page1 for example)
+
+		});
+
+		setInterval("checkURL()",250);	//check for a change in the URL every 250 ms to detect if the history buttons have been used
+
+	});
+
+	var lasturl="";	//here we store the current URL hash
+
+	function checkURL(hash)
+	{
+		if(!hash) hash=window.location.hash;	//if no parameter is provided, use the hash value from the current address
+
+		if(hash != lasturl)	// if the hash value has changed
+		{
+			lasturl=hash;	//update the current hash
+			loadPage(hash);	// and load the new page
+		}
+	}
+
+	function loadPage(url)	//the function that loads pages via AJAX
+	{
+		url=url.replace('#page','');	//strip the #page part of the hash and leave only the page number
+
+		
+
+		$.ajax({	//create an ajax request to load_page.php
+			type: "POST",
+			url: "<?= base_url() ?>/application/views/load_file.php",
+			data: 'page='+url,	//with the page number as a parameter
+			dataType: "html",	//expect html to be returned
+			success: function(msg){
+				if(parseInt(msg)!=0)	//if no errors
+				{
+					$('#pageContent'+url).html(msg);	//load the returned html into pageContet
+					
+				}
+			}
+
+		});
+
+	}
+</script>
 </body>
 </html>
