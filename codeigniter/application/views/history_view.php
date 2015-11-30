@@ -73,6 +73,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding-left: 3px;
 		padding-right: 3px;
 	}
+
+	#nav ul li .active {
+   		border-bottom:3px #FFF solid;
+   	}
 	</style>
 </head>
 <!--<body>
@@ -99,8 +103,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    	</div>
 	    	<div>
 	      		<ul class="nav navbar-nav" style="float:left;">
-	        		<li class="active"><a href="<?= base_url() ?>index.php">Home</a></li>
-	        		<li><a href="<?= base_url() ?>index.php/paste/history">History</a></li>
+	        		<li><a href="<?= base_url() ?>index.php">Home</a></li>
+	        		<li class="active"><a href="<?= base_url() ?>index.php/paste/history">History</a></li>
 	      		</ul>
 	      		<ul class="nav navbar-nav" style="float:right;">
 	      			<li><a href="#page1" id="about">About</a></li>
@@ -115,7 +119,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="pageContent2"></div>
 		<h1>History</h1>
 		<div id="body">
-			<table border="1">
+			<?php foreach ($results	as $row){?>
+						<a href="<?= base_url() ?>index.php/paste/code/<?= $row->filename ?>"> <p style="float:left;"><?= $row->data ?></a>
+						<p style="text-align:right;">Created At: <?= $row->time_update ?></p>
+			<?php }?>
+
+			<!--table border="1">
 				<thead>
 					<tr>
 						<th>Data</th>
@@ -131,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						foreach ($results as $row) {
 					?>
 					<tr>
-						<td><?= $row->data ?></td> <!-- karena berbentuk objek, maka kita menggunakan panah (->) untuk menunjuk field yang ada di database -->
+						<td><?= $row->data ?></td> 
 						<td><?= $row->filename ?></td>
 						<td><?= $row->language ?></td>
 						<td><?= $row->time_update ?></td>
@@ -140,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 					?>
 				</tbody>
-			</table>
+			</table-->
 		</div>
 		<p><?php echo $links; ?></p>
 		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
@@ -169,7 +178,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	});
 
 	var lasturl="";	//here we store the current URL hash
-
 	function checkURL(hash)
 	{
 		if(!hash) hash=window.location.hash;	//if no parameter is provided, use the hash value from the current address

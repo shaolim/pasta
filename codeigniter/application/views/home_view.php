@@ -87,11 +87,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
 		background-color:#e9e9e9;
 	}
-	.myButton:active {
-		position:relative;
-		top:1px;
-	}
-
+	#nav ul li .active {
+   		border-bottom:3px #FFF solid;
+   	}
 	</style>
 </head>
 <body style="background-color:#dfdfdf;">
@@ -153,7 +151,6 @@ $(document).ready(function(){	//executed after the page has loaded
 });
 
 var lasturl="";	//here we store the current URL hash
-
 function checkURL(hash)
 {
 	if(!hash) hash=window.location.hash;	//if no parameter is provided, use the hash value from the current address

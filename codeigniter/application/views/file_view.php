@@ -67,6 +67,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
 	}
+
+	#nav ul li .active {
+   		border-bottom:3px #FFF solid;
+   	}
+   	p .max {
+   		width:100%;
+   	}
 	</style>
 </head>
 <body style="background-color:#dfdfdf;">
@@ -102,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</select>
 	</div>
 	<div style="clear: both;">
-		<p id="paste" style="padding-left:10px; padding-right:10px; border:1px;" name="data"><?php foreach($content as $row) {echo $row->data;}?></p>	
+		<p class="max" id="paste" style="padding-left:10px; padding-right:10px; border:1px;" name="data"><?php foreach($content as $row) {echo $row->data;}?></p>	
 		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 	</div>
 
@@ -128,7 +135,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	});
 
 	var lasturl="";	//here we store the current URL hash
-
 	function checkURL(hash)
 	{
 		if(!hash) hash=window.location.hash;	//if no parameter is provided, use the hash value from the current address
