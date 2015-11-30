@@ -112,9 +112,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    	</div>
 	 	</div>
 	</nav>
+<div id="pageContent1"></div>
+<div id="pageContent2"></div>
 <div id="container" style="background-color:white;">
-	<div id="pageContent1" style="clear:both;"></div>
-	<div id="pageContent2"></div>
 	<?php echo form_open('paste'); ?>
 	<div style="padding-top: 10px;">
 		<p style="float:left; color:#0000ff;">Type & get your paste now!</p>
@@ -126,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<option value="PHP">PHP</option>			
 		</select>
 	</div>
-	<textarea  name="data" style="color:black; width:100%; height:380px;" class="form-control"></textarea><br>
+	<textarea id="paste" name="data" style="color:black;"></textarea><br>
 	<input class="myButton" style="float:right;" type="submit" value="Add Paste"><br>
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></>
 </div>
@@ -173,7 +173,7 @@ function loadPage(url)	//the function that loads pages via AJAX
 
 	$.ajax({	//create an ajax request to load_page.php
 		type: "POST",
-		url: "<?= base_url() ?>/application/views/load_file.php",
+		url: "load_file.php",
 		data: 'page='+url,	//with the page number as a parameter
 		dataType: "html",	//expect html to be returned
 		success: function(msg){

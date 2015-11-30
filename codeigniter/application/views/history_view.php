@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
@@ -13,7 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	body {
 		background-color: #fff;
-		margin: 40px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
 	}
@@ -59,9 +61,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	#container {
-		margin: 10px;
+		border-radius: 10px;
+		padding-left: 60px;
+		padding-right: 60px;
+		margin-left: 80px;
+		margin-right: 80px;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
+	}
+	td {
+		padding-left: 3px;
+		padding-right: 3px;
 	}
 	</style>
 </head>
@@ -81,7 +91,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>-->
 
 <body>
-	<div id="container">
+<body style="background-color:#dfdfdf;">
+	<nav class="navbar navbar-default"  style="background-color:#6fc6a6;">
+	  	<div class="container-fluid">
+	    	<div class="navbar-header">
+	    		<a class="navbar-brand" href="<?= base_url() ?>index.php">Pasta!</a>
+	    	</div>
+	    	<div>
+	      		<ul class="nav navbar-nav" style="float:left;">
+	        		<li class="active"><a href="<?= base_url() ?>index.php">Home</a></li>
+	        		<li><a href="<?= base_url() ?>index.php/paste/history">History</a></li>
+	      		</ul>
+	      		<ul class="nav navbar-nav" style="float:right;">
+	      			<li><a href="#">About</a></li>
+	      			<li><a href="#">Contact Us</a></li>
+	      		</ul>
+	    	</div>
+	 	</div>
+	</nav>
+
+	<div id="container" style="background-color:white;">
 		<h1>History</h1>
 		<div id="body">
 			<table border="1">
