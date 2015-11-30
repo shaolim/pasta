@@ -23,9 +23,11 @@ class Create extends CI_Model {
     public function insert()
     {
             $random = random_string('alnum', 8);
+            //$now = new DateTime ( NULL, new DateTimeZone('UTC'));
             $data = array(
                 'data' => $this->input->post('data'),
-                'filename' => $random
+                'filename' => $random,
+            //    'language' => $this->input-post();
             );
             if($this->db->insert('paste', $data)) {
                 return $random;
