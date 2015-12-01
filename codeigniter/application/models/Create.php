@@ -43,6 +43,7 @@ class Create extends CI_Model {
 
     public function fetch_data($limit, $start) {
         $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
         $query = $this->db->get('paste');
 
         if ($query->num_rows() > 0) {

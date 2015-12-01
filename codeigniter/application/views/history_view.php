@@ -116,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
 <body style="background-color:#dfdfdf;">
-	<nav class="navbar navbar-default"  style="background-color:#6fc6a6;">
+	<nav class="navbar navbar-default"  style="background-color:#6fc6d6;">
 	  	<div class="container-fluid">
 	    	<div class="navbar-header">
 	    		<a class="navbar-brand" href="<?= base_url() ?>index.php">Pasta!</a>
@@ -140,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h1>History</h1>
 		<div id="body">
 			<?php foreach ($results	as $row){?>
-						<a class="bor" href="<?= base_url() ?>index.php/paste/code/<?= $row->filename ?>"><p style="max-width: 77%; float:left;"><?= $row->data ?>
+						<a class="bor" href="<?= base_url() ?>index.php/paste/code/<?= $row->filename ?>"><pre class="highlight"><p style="max-width: 77%; float:left;"><?= $row->data ?></pre>
 						<p style="float:right;">Created At: <?= $row->time_update ?></p></a>
 			<?php }?>
 			<!--table border="1">
@@ -230,7 +230,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 
 	}
+
 </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://balupton.github.com/jquery-syntaxhighlighter/scripts/jquery.syntaxhighlighter.min.js"></script>
+<script type="text/javascript">$.SyntaxHighlighter.init();</script>
 </body>
 
 </html>

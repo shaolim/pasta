@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body style="background-color:#dfdfdf;">
-	<nav class="navbar navbar-default" style="background-color:#6fc6a6;">
+	<nav class="navbar navbar-default" style="background-color:#6fc6d6;">
 	  	<div class="container-fluid">
 	    	<div class="navbar-header">
 	    		<a class="navbar-brand" href="<?= base_url() ?>index.php">Pasta!</a>
@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</select>
 	</div>
 	<div style="clear: both;">
-		<p class="max" id="paste" style="padding-left:10px; padding-right:10px; border:1px;" name="data"><?php foreach($content as $row) {echo $row->data;}?></p>	
+		<pre class="highlight"><p class="max" id="paste" style="padding-left:10px; padding-right:10px; border:1px;" name="data"><?php foreach($content as $row) {echo $row->data;}?></p></pre>	
 		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 	</div>
 
@@ -169,5 +169,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	}
 </script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://balupton.github.com/jquery-syntaxhighlighter/scripts/jquery.syntaxhighlighter.min.js"></script>
+<script type="text/javascript">$.SyntaxHighlighter.init();</script>
 </body>
 </html>
