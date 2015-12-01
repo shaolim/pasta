@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body style="background-color:#dfdfdf;">
 	<nav class="navbar navbar-default" style="background-color:#6fc6d6;">
-	  	<div class="container-fluid">
+	  	<div id="container">
 	    	<div class="navbar-header">
 	    		<a class="navbar-brand" href="<?= base_url() ?>index.php">Pasta!</a>
 	    	</div>
